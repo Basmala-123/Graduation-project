@@ -1,0 +1,94 @@
+/* -------my books------- */
+.line
+{
+    height: 1.5px;
+    background-color: var(--profileColor);
+}
+.layer-page
+{
+    background-color: rgba(0,0,0,0.4);
+    /* height: 45vh; */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    display: none;
+    transition: display 0.3s ease-in;
+    border-radius: 3px;
+}
+.layer-page button
+{
+    background-color: var(--mainColor);
+    /* width:272px !important; */
+    width: 110% !important;
+    position: relative;
+    right: 5%;
+    border-radius: 2px !important;
+    top: 75%;
+    font-weight: 100 !important;
+}
+.position-layer:hover .layer-page
+{
+    display: block;
+}
+.my-slide
+{
+    margin-top: 18px;
+    background-color: var(--mainColor) !important;
+    width: 15px;
+    height: 15px !important;
+    border-radius: 50%;
+}
+.progress
+{
+    height: 2.5px !important;
+}
+.progress-bar
+{
+    background-color: var(--mainColor);
+}
+.divid-line
+{
+    background-color: var(--profileColor);
+    height: 1px;
+}
+.card
+{
+    border: 1.8px solid rgb(241, 206, 206) !important;
+    
+    
+}
+/* ------small screan------ */
+@media screen and (max-width:567px) {
+    
+    .card-body h5 
+    {
+        font-size: 14px !important;
+        font-weight: 300 !important;
+    }
+    .card-body h6 
+    {
+        font-weight: 200 !important;
+        font-size: 12px !important;
+    }
+   .layer-page button
+    {
+        width:100% !important;
+        left: 0;
+        top: 72% !important;
+    }
+    .layer-page
+    {
+        height: 100% !important;
+    }
+}
+/* -------mediuam screan-------- */
+@media screen and (max-width:768px) {
+    .layer-page button
+    {
+        width:100% !important;
+        left: 0;
+    }
+}

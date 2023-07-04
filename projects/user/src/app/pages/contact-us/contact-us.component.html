@@ -1,0 +1,36 @@
+<section class="contact-page container-fluid py-3 mt-4 ">
+    <h2 class="text-center text-capitalize fw-bold">contact us</h2>
+    <p class="text-center text-capitalize fw-bold">Ask us anything and we will be happy to hear from you</p>
+</section>
+<section class="container py-5">
+    <div class="row">
+        <div class="col-lg-6 my-2">
+            <div class="contact-img mt-5">
+                <img  src="../../../assets/images/undraw_contact_us_re_4qqt.svg" alt="contact picture">
+            </div>
+        </div>
+        <div class="col-lg-6 py-3 my-2">
+            <div class="contact-card w-50 mx-auto">
+                <h3 class="text-capitalize fw-bold">Send us a message</h3>
+                <form class="mt-3" (ngSubmit)="onSubmit(formData)" #myForm="ngForm">
+                    <div class="mb-3">
+                        <label for="inputName" class="form-label text-capitalize fw-bold">full name:</label>
+                        <input type="text" class="form-control"  [(ngModel)]="formData.name" name="name" id="inputName" aria-describedby="nameHelp">
+                      </div>
+                    <div class="mb-3">
+                      <label for="inputEmail" class="form-label text-capitalize fw-bold">Email address:</label>
+                      <input type="email" class="form-control" id="inputEmail" name="email" [(ngModel)]="formData.email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label text-capitalize fw-bold">message:</label>
+                        <textarea name="message" [(ngModel)]="formData.message" class="form-control py-2"></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <button class="btn text-capitalize text-white w-100 rounded-5" type="submit">send <i class="fa-solid fa-arrow-right"></i></button>
+                      </div>
+                  </form>
+            </div>
+            <div class=" form-control border-success border-success" *ngIf="showMessage">{{message}}</div>
+        </div>
+    </div>
+</section>

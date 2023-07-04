@@ -1,0 +1,97 @@
+<section class="about-page px-4 py-5 mb-3 mt-4">
+  <div class="row gy-3">
+    <div class="col-lg-6">
+      <div class="about-img">
+        <img
+          src="^../../../assets/images/11992.jpg"
+          class="img-fluid rounded-3"
+          alt="about picture"
+        />
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="about-card p-3">
+        <h3 class="text-capitalize mt-3">semi book</h3>
+        <p class="text-capitalize my-3">
+          Our first goal is to save time by summarizing books, 
+          as well as increasing the number of readers, even if
+           they do not like reading for long periods, 
+           through the useful acronym method, and also providing some books 
+           for free and easily obtaining them through search.
+        </p>
+        <a routerLink="/books" class="nav-link">
+          <button class="rounded-3 btn text-uppercase px-4 py-2 mb-5 mt-2">
+            read now <i class="fa-solid fa-arrow-right ms-3"></i>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ----section 2------- -->
+<section class="about-page2 position-relative">
+  <div class="col-lg-12 part1"></div>
+  <div class="col-lg-12 part2"></div>
+  <div class="col-lg-12 part3"></div>
+  <div class="container card-position bg-white">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="about-card2 py-5 px-4">
+          <h6 class="text-uppercase fw-bold">who we are</h6>
+          <h3 class="text-capitalize fs-1 fw-bold">online reading</h3>
+          <p> 
+            Welcome to Semibook , online library for readers around the world.
+            At Semibook, we believe that reading should be accessible to everyone, regardless of their location or financial situation. That's why we offer a wide range of reading materials, from classic novels and non-fiction works to the latest bestsellers and research articles.
+            Our collection is constantly growing, with new items added regularly to ensure that our readers always have something new and exciting to discover.
+            Our team is made up of passionate book lovers who are dedicated to making reading a part of everyone's life. We are committed to providing the best possible experience for our users, from our easy-to-use website to our knowledgeable customer support team. Whether you're a casual reader or a serious scholar, we have something for everyone. 
+            Thank you for choosing Semibook. We hope that our library will help you discover new worlds and broaden your horizons.<br /> Happy reading!     
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6 d-flex justify-content-center align-items-center">
+        <div class="about-img2 w-75 py-3">
+          <img
+            class="w-100"
+            src="../../../assets/images/high-angle-high-angle-tablet-books.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- -----section 3-------- -->
+<div class="col-lg-12 part2"></div>
+<section class="container-fluid my-5 article-page mt-3">
+  <div class="article-info text-center">
+    <h6 class="text-uppercase my-4">read our articles</h6>
+    <h3 class="text-capitalize fw-bold fs-1">latest article</h3>
+ </div>
+  <div class="row mt-5">
+    <div class="col-lg-4" *ngFor="let article of firstThreeArticles">
+      <div class="card p-2 category">
+        <img
+          src="https://books.mhouses.net/{{article.image}}"
+          class="img-fluid"/>
+        <div class="card-body my-3">
+          <h6 class="text-uppercase">{{ article.created_at | date }}</h6>
+          <h4 class="text-capitalize fw-bold">{{ article.title }}</h4>
+          <p class="card-text">{{ article.content }}</p>
+          <hr />
+          <div class="social-icons">
+            <a href=""> <i class="fa-brands fa-facebook-f fs-5 me-3"></i></a>
+            <a href=""><i class="fa-brands fa-twitter fs-5 me-3"></i></a>
+            <a href=""><i class="fa-brands fa-linkedin fs-5 me-3"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="article-btn my-4 d-flex justify-content-center">
+    <a class="btn text-uppercase fw-bold mt-4" routerLink="/articles"
+      >read all articles<i class="fa-solid fa-arrow-right ms-2"></i
+    ></a>
+  </div>
+  <hr />
+</section>

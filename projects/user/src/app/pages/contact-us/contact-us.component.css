@@ -1,0 +1,16 @@
+.contact-page
+{
+    background-color: var(--secondColor);
+}
+.contact-img img
+{
+    width: 550px;
+}
+.contact-card form input , .contact-card form textarea
+{
+    border: 1.5px solid var(--mainColor);
+}
+.contact-card button
+{
+    background-color: var(--mainColor);
+}

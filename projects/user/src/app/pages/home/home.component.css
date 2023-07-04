@@ -1,0 +1,152 @@
+
+.home-page span
+{
+    color: #76BA99;
+}
+.btn{
+  border: 1px solid var(--mainColor);
+  transition: all 0.3s ease-in;
+  font-size: .9rem;
+}
+.btn:hover{
+  background-color: var(--mainColor);
+  color: aliceblue;
+}
+.articles img,
+.category img {
+  height:200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.icon-service
+{
+    background-color: #e4f1eb;
+}
+.icon-service i
+{
+    color: #76BA99;
+}
+.icon-service span
+{
+    position: relative;
+    bottom: 6px;
+}
+.categories .line
+{
+    width: 30px;
+    height: 2px;
+    background-color: var(--mainColor);
+    position: relative;
+    top: 13px;
+}
+.cat-icon i
+{
+   border: 2px solid var(--mainColor);
+   border-radius: 50%;
+}
+.cat-icon .left
+{
+    color: var(--mainColor);
+    transition: all 0.6s 0.2s ease-out;
+}
+.cat-icon div
+{
+    background-color: var(--mainColor);
+    color: aliceblue;
+    border-radius: 50%;
+}
+.cat-icon .left:hover
+{
+    background-color: var(--mainColor);
+    color: aliceblue;
+}
+.picture .img-card
+{
+    overflow: hidden;
+}
+.picture img
+{
+    transition: all 0.5s ease-in;
+}
+.picture img:hover
+{
+    transform: scale(1.2);
+}
+.release
+{
+    background-color: var(--secondColor);
+}
+.article-info h3
+{
+    position: relative;
+}
+
+.subscribe-page
+{
+    background-color: var(--secondColor);
+    height: 50vh;
+}
+
+.subscribe-info
+{
+    background-color:var(--mainColor);
+    width: 90%;
+}
+.subscribe-box{
+  position: absolute;
+  bottom: -15%;
+  width: 60%;
+
+}
+@media screen and (max-width:700px) {
+  .subscribe-box{
+    width: 97%;
+  }
+}
+.subscribe-box button {
+  background-color: var(--mainColor);
+  color: aliceblue;
+  border-radius: 0px !important;
+  position: absolute;
+  bottom: 0.6rem;
+  right: 1.2rem;
+  padding: .5rem 2rem;
+}
+
+.layer
+{
+    height: 34vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    transition: all 0.5s ease-out;
+}
+.btn-layer
+{
+    position: relative;
+    top: 55%;
+}
+.btn-layer button
+{
+    border: none;
+    background-color:#1b8552;
+}
+.book:hover .layer
+{
+    visibility: visible;
+}
+.card-book
+{
+    background-color: white;
+}
+.my-slide
+{
+    width: 10px !important;
+    height: 10px !important;
+    background-color: var(--mainColor) !important;
+    border-radius: 50%;
+}

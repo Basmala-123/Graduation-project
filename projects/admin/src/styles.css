@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.btn-primary,.btn-primary:hover
+{
+  border: 1px solid transparent;
+background-color: #76BA99;
+}
+.form-control:focus{
+outline: 0;
+border-color: #76ba99;
+box-shadow: 0 0 0 0.25rem rgb(118 186 153 / 25%);
+}
+

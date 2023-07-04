@@ -1,0 +1,64 @@
+.login-card
+{
+    background-color: var(--secondColor);
+    width: 45% !important;
+    border-radius: 50px;
+    height: 70%;
+}
+.login-card form input::placeholder
+{
+    text-transform: capitalize;
+    font-size: 15px;
+}
+.login-card form button
+{
+    background-color: var(--mainColor);
+}
+.login-card img
+{
+    width: 40%
+}
+.login-card p
+{
+    font-size: 15px;
+    line-height: 19.5px;
+    font-weight: 500;
+}
+.login-card span
+{
+    color: var(--mainColor);
+}
+.login-page
+{
+    background-image: url('^../../../assets/images/undraw_Book_reading_re_fu2c.png');
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.login-card a:hover
+{
+    color: var(--mainColor) !important;
+    font-weight: 300 !important;
+}
+.error-mess
+{
+    color:var(--err-text);
+}
+@media screen and (max-width:950px) {
+    .login-page
+    {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .login-card
+    {
+        /* width: 60% !important;
+        padding-top: 0px !important; */
+        width: 100% !important;
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
+    }
+}

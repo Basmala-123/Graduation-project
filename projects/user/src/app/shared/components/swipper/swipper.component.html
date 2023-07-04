@@ -1,0 +1,17 @@
+
+
+
+<swiper
+      [config]="config"
+      (swiper)="onSwiper($event)"
+      (slideChange)="onSlideChange()"
+    >
+      <!-- <ng-template swiperSlide>Slide 1</ng-template> -->
+      <ng-template swiperSlide *ngFor="let slide of slides"> 
+        <app-book-card [book]="slide"></app-book-card>
+      </ng-template>
+      <!-- <ng-template swiperSlide>Slide 3</ng-template>
+      <ng-template swiperSlide>Slide 4</ng-template>
+      <ng-template swiperSlide>Slide 5</ng-template>
+      <ng-template swiperSlide>Slide 6</ng-template> -->
+    </swiper>

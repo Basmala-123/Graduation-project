@@ -1,0 +1,177 @@
+.about-page
+{
+    background-color: var(--secondColor);
+}
+.about-card h3
+{
+    font-size: 60px;
+    font-weight: 600;
+}
+.about-card p ,.about-card2 p
+{
+    line-height: 26px;
+    font-weight: 600;
+}
+.about-card button 
+{
+    border: 1.5px solid #76ba99 ;
+    color:  #76ba99;
+    transition: all 0.4s ease-in;
+}
+.about-card button:hover 
+{
+    background-color:  #76ba99;
+    color: white;
+    font-weight: 300;
+}
+.category img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+
+/* --------section2----------- */
+.about-page2 .part1
+{
+    height: 15vh;
+}
+.about-page2 .part2 ,  .part2
+{
+    height: 25vh;
+    background-color: var(--secondColor);
+}
+.about-page2 .part3
+{
+    height: 50vh;
+    background-color: var(--mainColor);
+}
+.card-position
+{
+    position: absolute;
+    width: 90%;
+    left: 5%;
+     top: 20px;
+}
+
+/* --------section 3--------- */
+.article-info h3
+{
+    position: relative;
+}
+.article-info h3::before
+{
+    content: " ";
+    position: absolute;
+    top: 18px;
+    left: 0%;
+    width: 32%;
+    height: 0.8px;
+    background-color: var(--mainColor);
+}
+.article-info h3::after
+{
+    content: " ";
+    position: absolute;
+    top: 18px;
+    right: 1%;
+    width: 31%;
+    height: 0.8px;
+    background-color: var(--mainColor);
+}
+.card-info i
+{
+    color:#1b8552 !important;
+}
+.article-info h6
+{
+    font-size: 13px;
+    font-weight: 600;
+}
+.article-btn button , .about-card button
+{
+    font-size: 16px;
+    font-weight: 600;
+}
+.article-btn button
+{
+    border: 1.9px solid var(--mainColor);
+    transition: all 0.4s ease-in;
+}
+.article-btn button:hover
+{
+    background-color: var(--mainColor);
+    color: white;
+    font-weight: 300;
+}
+/* responsive-medium */
+@media screen and (max-width:768px) {
+   .about-card2
+   {
+    padding: 2px 3px !important;
+   }
+   
+    .about-img2
+    {
+        display: none !important;
+    }
+    .article-info h3::before
+    {
+        display: none !important;
+    }
+    .article-info h3::after
+    {
+        display: none !important;
+    }
+}
+/* responsive-small */
+ @media screen and (max-width:568px) { 
+    .about-card h3 
+    {
+        margin-top: 1px !important;
+        font-size: 30px !important;
+    }
+    .about-page
+    {
+        padding: 4px !important;
+    }
+    .about-card p
+    {
+        margin-top: 4px !important;
+    }
+    .about-card button 
+    {
+        padding:  8px 6px !important;
+        margin: 2px 0px !important;
+        font-weight: 200 !important;
+    }
+    .about-card2 
+    {
+        padding: 5px 2px !important;
+    }
+    .about-card2 h3
+    {
+        font-size:20px !important;
+    }
+    .about-card2 h6 
+    {
+        font-weight: 200 !important;
+    }
+    .article-info h3::before
+    {
+        display: none !important;
+    }
+    .article-info h3::after
+    {
+        display: none !important;
+    }
+    .card-info-2
+    {
+        margin: 3px 0px !important;
+    }
+} 
+.btn{
+  border: 1px solid var(--mainColor);
+  transition: all 0.3s ease-in;
+  font-size: .9rem;
+}

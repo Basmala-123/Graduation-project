@@ -1,0 +1,20 @@
+<section class="w-75 mt-5 mx-auto">
+  <div *ngIf="errorMessage"  class="alert text-danger">{{errorMessage}}</div>
+    <form  [formGroup]="adminInfo">
+        <div class="mb-3">
+            <label for="adminNameInput" class="form-label text-capitalize fs-5">admin name</label>
+            <input type="text" formControlName="name" class="form-control" id="adminNameInput">
+          </div>
+          
+        <div class="mb-3">
+          <label for="emailInput" class="form-label text-capitalize fs-5">Email address</label>
+          <input type="email" formControlName="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="passowrdInput" class="form-label text-capitalize fs-5">Password</label>
+          <input type="password" formControlName="password" class="form-control" id="passowrdInput">
+        </div>
+        <button type="button" class="btn btn-success text-capitalize" (click)="signUpForm()" >sign up</button>
+      </form>
+</section>

@@ -1,0 +1,99 @@
+<section >
+    <div class="row align-items-center mb-5">
+       <div class=" col-lg-7">
+          <div class="home-page">
+              <h1 class="text-capitalize fw-bold">Read books <span>online</span> <br> from Over 12 Million Book</h1>
+              <p class="text-capitalize fw-bold mt-3">Start to reading online and summerize your book</p>
+              <a routerLink="/books" class="btn text-uppercase fw-bold mt-4 "> view more <i class="fa-solid fa-arrow-right ms-2 "></i></a>
+          </div>
+       </div>
+       <div class="col-lg-5">
+          <div class="home-img ">
+             <img src="../../../assets/images/WhatsApp Image 2023-04-11 at 10.06.25 AM.jpeg" class="img-fluid"  alt="home picture">
+          </div>
+       </div>
+    </div>
+    <div class="service mb-5">
+       <h2 class="text-capitalize fw-bold my-4 ">discover our service</h2>
+       <div class="row mb-4">
+          <div class="col-lg-4 mb-3">
+             <div class="icon-service  p-3 rounded-3 ">
+                <i class="fa-solid fa-book-bookmark fs-1 ms-3 me-3 "></i>
+                <span class="text-capitalize fs-5 fw-bold ">Read Books online</span>
+             </div>
+          </div>
+          <div class="col-lg-4 mb-3">
+             <div class="icon-service  p-3 rounded-3">
+                <i class="fa-solid fa-clock fs-1 ms-3 me-3 "></i>
+                <span class="text-capitalize fs-5 fw-bold">Save Your time</span>
+             </div>
+          </div>
+          <div class="col-lg-4 mb-3">
+             <div class="icon-service  p-3 rounded-3">
+                <i class="fa-solid fa-euro-sign fs-1 ms-3 me-3"></i>
+                <span class="text-capitalize fs-5 fw-bold">Free books</span>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="categories mb-5">
+       <div class="d-flex">
+          <span class="line me-2"></span>
+          <span class="text-uppercase main-color fw-bold">categories</span>
+       </div>
+          <h3 class="text-capitalize fw-bold">Explore our Top Categories</h3>
+    </div>
+
+
+
+    <div class="picture">
+       <div class="row">
+          <div class="col-lg-4" *ngFor="let item of firstThreeCategories">
+             <div class="picture-info rounded-3 category">
+               <div class="img-card rounded-3"><img src="https://books.mhouses.net/{{item.image}}" class="img-fluid rounded-3" alt="office picture"></div>
+                <h5 class="my-4 text-capitalize text-center fw-bold">{{item.name}}</h5>
+             </div>
+          </div>
+       </div>
+       <div class="d-flex justify-content-center">
+          <a routerLink="/books" class="btn text-uppercase fw-bold"> view more <i class="fa-solid fa-arrow-right ms-2"></i></a>
+       </div>
+    </div>
+ </section>
+ <section class="article my-5">
+    <div class="text-center" >
+       <h6 class="text-uppercase fw-bold">read our articles</h6>
+       <h3 class="text-capitalize fw-bold fs-1 ">latest article</h3>
+    </div>
+    <div class="row mt-5">
+       <div class="col-lg-4" *ngFor="let article of firstThreeArticles">
+          <div class="card p-2 articles" >
+             <img src="https://books.mhouses.net/{{article.image}}" class="img-fluid " alt="...">
+             <div class="card-body my-3">
+                <h6 class="text-uppercase">{{article.created_at|date}}</h6>
+                <h4 class="text-capitalize fw-bold">{{article.title}}</h4>
+                <p class="card-text text-truncate">{{article.content}}</p>
+                <hr>
+                <div class="social-icons">
+                  <a href=""> <i class="fa-brands fa-facebook-f fs-5 me-3"></i></a>
+                  <a href=""><i class="fa-brands fa-twitter fs-5 me-3"></i></a>
+                  <a href=""><i class="fa-brands fa-linkedin fs-5 me-3"></i></a>
+                </div>
+             </div>
+           </div>
+       </div>
+    </div>
+    <div class="article-btn my-4 d-flex justify-content-center">
+       <a class="btn text-uppercase fw-bold mt-4" routerLink="/articles">read all articles<i class="fa-solid fa-arrow-right ms-2"></i></a>
+    </div>
+ </section>
+ <section class="subscribe-page  mt-5 ">
+    <div class="subscribe-info pb-5 position-relative py-3 mx-auto d-flex justify-content-center flex-column align-items-center text-white ">
+       <p class="text-capitalize fw-bolder fs-3 ">Subscribe to Our News letter</p>
+       <form class="d-flex subscribe-box"role="Subscribe">
+        <input class="form-control me-2 p-3" type="email" placeholder="Subscribe" aria-label="Subscribe">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+ </section>
+

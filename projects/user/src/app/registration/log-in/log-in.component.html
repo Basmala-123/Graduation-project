@@ -1,0 +1,27 @@
+<section class="login-page d-flex justify-content-end align-items-center">
+    <div class="login-card col-md-6 d-flex justify-content-center align-items-center flex-column ">
+        <div class=" d-flex justify-content-center ">
+          <img src="../../../assets/images/semibook-high-resolution-logo-color-on-transparent-background.png" alt="sign up picture">
+        </div>
+        <div class="text-danger"  *ngIf="errorMessage">
+          {{errorMessage}}
+         </div>
+        <form (ngSubmit)="submitLoginForm()"  class="pt-3 pb-3 w-75" [formGroup]="loginForm" >
+            <input type="email" formControlName="email" class="form-control py-3 border-0 mt-3 mb-4 rounded-5" placeholder="enter your email address">
+            <div class="alert error-mess " *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
+                <p *ngIf="loginForm.get('email')?.getError('required')" class="py-0 my-0 text-capitalize">your email is required</p>
+                <p *ngIf="loginForm.get('email')?.getError('email')"class="py-0 my-0 text-capitalize" >please insert email formate valid</p>
+            </div>
+            <input formControlName="password" type="password" class="form-control border-0 py-3 mb-3 rounded-5" placeholder="enter your password">
+            <div class="alert error-mess" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+                <p *ngIf="loginForm.get('password')?.getError('required')" class=" text-capitalize" >your password is required</p>
+            </div>
+            <div class="d-flex justify-content-center pt-3">
+              <button class="rounded-5 border-0 py-2 px-5 text-white text-capitalize" type="submit">log in</button>
+            </div>
+        </form>
+        <div class="mt-2 text-card">
+          <p class="text-center text-capitalize  ">create account ? <a routerLink="/signup" class="text-decoration-none">sign up</a></p>
+        </div>
+      </div>
+</section>

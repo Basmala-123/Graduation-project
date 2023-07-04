@@ -1,0 +1,20 @@
+.accordion-button:not(.collapsed) {
+  color: #76ba99;
+  background-color: #edf7f2;
+  box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 #76ba99;
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvCeGX196lpIYaCSfvnpIGbD1s4ALQW8sUlg&usqp=CAU');
+
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color:#76ba99;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(118 186 153 / 25%);
+
+}
+.img-search{
+  height:300px;
+}

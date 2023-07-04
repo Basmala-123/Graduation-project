@@ -1,0 +1,54 @@
+<section class=" py-5 ">
+    <div class="row ">
+        <div class="col-lg-4">
+            <div class="book-img">
+                <h5 class="text-center text-capitalize py-3 fw-bold">Books / {{book.title}}</h5>
+                <div class="book p-3 my-2">
+                    <img class="w-100" src="https://books.mhouses.net/{{book.image}}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="book-detail  ps-4">
+                <h6 class="text-capitalize pt-4 fw-bold">Featured Book of the week</h6>
+                <h2 class="fw-bold text-capitalize">{{book.title}}</h2>
+                <span class="text-dark me-2">({{book.rate}})</span>
+                <span class="star-icon my-2" *ngFor="let i of range(book.rate)">
+                    <i class="fa-solid fa-star solid-str" ></i>
+                </span>
+                <div class="reg-form py-2">
+                    <form class=" d-flex ">
+                        <div class=" d-flex me-3 align-items-center justify-content-center">
+                          <span class="text-capitalize me-2 fw-bolder">author : </span>
+                          <p class="label m-0">{{bookAuthData.name}}</p>
+                        </div>
+                        <div class=" d-flex me-3 align-items-center justify-content-center">
+                          <span class="text-capitalize me-2 fw-bolder">published at : </span>
+                          <p class="label m-0">{{book.publish_year}}</p>
+                        </div>
+                      </form>
+                </div>
+                <div class="details mb-3 mt-3">
+                    <h5 class="fw-bold text-capitalize">About the author</h5>
+                    <p>J.D. Salinger was an American writer, best known for his 1951 novel The Catcher in the Rye. Before <br> its publi cation, Salinger published several short stories in Story magazine</p>
+                </div>
+                <div class="details">
+                    <h5 class="fw-bold text-capitalize">Overview</h5>
+                    <p>{{book.description}}  </p>
+                </div>
+                <div class=" py-2">
+                    <button class="btn fs-6 text-capitalize  me-5 px-3" [value]="book.id" (click)="openBook($event)" >read now <i class="fa-solid fa-arrow-right ms-2"></i></button>
+                    <button class="btn fs-6 text-capitalize px-3" (click)="addtofav(book.id)">{{add}} <i class="fa-solid fa-arrow-right ms-3"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="px-4">
+    <div class="row my-book">
+        <h3 class="col-lg-4  fw-bold  text-capitalize ">Recommended for you</h3>
+        <div class="line col-lg-8 mt-3"></div>
+    </div>
+</section>
+<app-swipper [slides]="allBooksCategory"></app-swipper>
+

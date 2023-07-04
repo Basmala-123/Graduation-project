@@ -1,0 +1,44 @@
+.card{
+  padding:1.5rem;
+  height:380px;
+}
+.card img{
+    height: 240px;
+    object-fit: fill;
+    border-radius:5px;
+    width: 100%;
+}
+.add-fav:hover,.add-fav{
+  color:#76ba99;
+  border:1px solid transparent;
+}
+.rate {
+color:#faea10;
+}
+.layer-page{
+  background-color: rgba(0,0,0,0.2);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: none;
+  transition: display 0.3s ease-in;
+  border-radius: 3px;
+}
+.layer-page a{
+  background-color: var(--mainColor);
+  width: 110% !important;
+  position: relative;
+  right: 5%;
+  border-radius: 2px!important;
+  top: 75%;
+  font-weight: 100 !important;
+}
+.card:hover .layer-page{
+  display: block;
+}
+.fa-heart{
+  color: #76ba99;
+}

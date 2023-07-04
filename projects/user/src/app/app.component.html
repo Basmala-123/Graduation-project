@@ -1,0 +1,7 @@
+
+<div class="container">
+  <app-header *ngIf="isVisible"></app-header>
+  <router-outlet></router-outlet>
+</div>
+<app-footer *ngIf="isVisible"></app-footer>
+<app-summerize-modal *ngIf="isVisible"></app-summerize-modal>

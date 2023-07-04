@@ -1,0 +1,130 @@
+<div class="row">
+  <div class="col-3 filterSection" style="height: 90vh">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne"
+            aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseOne"
+          >
+            <label for="category"> Category</label>
+          </button>
+        </h2>
+        <div
+          id="panelsStayOpen-collapseOne"
+          class="accordion-collapse collapse show"
+          aria-labelledby="panelsStayOpen-headingOne"
+        >
+          <div class="accordion-body">
+            <div class="form-check" *ngFor="let item of Categories">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [value]="item.name"
+                name="Category"
+                (change)="OnChange($event)"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                {{ item.name }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseTwo"
+            aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseTwo"
+          >
+            <label> Author </label>
+          </button>
+        </h2>
+        <div
+          id="panelsStayOpen-collapseTwo"
+          class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingTwo"
+        >
+          <div class="accordion-body">
+            <div class="form-check" *ngFor="let item of Author">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [value]="item.name"
+                name="Author"
+                (change)="OnChange($event)"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                {{ item.name }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseThree"
+            aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseThree"
+          >
+            <label>Rate</label>
+          </button>
+        </h2>
+        <div
+          id="panelsStayOpen-collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingThree"
+        >
+          <div class="accordion-body">
+            <div class="form-check" *ngFor="let item of AllbookData">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [value]="item.rate"
+                name="Rate"
+                (change)="OnChange($event)"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                {{ item.rate }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-9 mb-5">
+    <div class="row">
+      <div
+        class="col-12 col-md-4"
+        *ngFor="
+          let book of DisplayBooks
+            | paginate : { itemsPerPage: itemsPerPage, currentPage: p }
+        "
+      >
+        <app-book-card [book]="book"></app-book-card>
+      </div>
+      <img
+        *ngIf="!DisplayBooks.length"
+        class="img-search"
+        src="../../../assets/images/filesearch.svg"
+        alt=""
+      />
+      <div class="d-flex text-center justify-content-center py-5">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

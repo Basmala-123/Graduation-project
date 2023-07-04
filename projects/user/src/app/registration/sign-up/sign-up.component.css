@@ -1,0 +1,58 @@
+ .signup-card
+{
+    background-color: var(--secondColor);
+    /* width: 45% !important; */
+}
+.signup-card form input::placeholder
+{
+    text-transform: capitalize;
+    font-size: 15px;
+}
+.signup-card form input
+{
+    font-size: 20px !important;
+    font-weight: 200 !important;
+}
+.signup-card form button
+{
+    background-color: var(--mainColor);
+}
+.signup-card img
+{
+    width: 45%
+}
+.text-card
+{
+    font-size: 14px !important;
+}
+.signup-card a
+{
+    color: var(--mainColor);
+}
+.signup-page
+{
+    background-image: url('^../../../assets/images/undraw_Book_reading_re_fu2c.png');
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.error-mess
+{
+    color: var(--err-text);
+}
+@media screen and (max-width:768px) {
+    .signup-page
+    {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+
+    }
+    .signup-card
+    {
+        width: 100% !important;
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
+    }
+}

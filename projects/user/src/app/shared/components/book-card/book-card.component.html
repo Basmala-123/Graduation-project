@@ -1,0 +1,22 @@
+<div class="card position-relative my-3 book">
+  <button class="add-fav d-flex bg-transparent justify-content-center align-items-center border border-1 p-2 rounded-circle position-absolute top-0 end-0" *ngIf="!Selected" (click)="addtofav(book.id)" >
+    <i class="fa-regular fa-heart" ></i>   
+  </button>
+  <button class="add-fav d-flex bg-transparent justify-content-center align-items-center border border-1 p-2 rounded-circle position-absolute top-0 end-0" *ngIf="Selected" (click)="deletefromfav(book.id)">
+    <i class="fa-solid fa-heart" ></i>   
+  </button>
+  <div class="position-relative px-3">
+  <img src="https://books.mhouses.net/{{book.image}}" alt="">
+    <div class="layer-page mx-3">
+      <a  [routerLink]="['/book-detail', book.id]" class="btn text-capitalize text-white w-100">read now</a>
+    </div>
+  </div>
+  <div class="card-body p-0 mt-2 text-center position-relative">
+    <p class="card-text text-capitalize m-0 fw-bold">{{book.title}}</p>
+    <p class="card-text m-0 fw-light fs-6">{{ book.author ? book.author.name : '' }}</p>
+    <span class="text-dark me-2">({{book.rate}})</span>
+    <span class="rate" *ngFor="let i of range(book.rate)">  
+      <i class="fa-solid fa-star"></i>
+    </span>
+  </div>
+</div>

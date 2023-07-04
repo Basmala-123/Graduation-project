@@ -1,0 +1,82 @@
+
+@import '~swiper/css';
+@import '~swiper/css/navigation';
+@import '~swiper/css/pagination';
+body
+{
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+:root
+{
+    --mainColor: #76ba99;
+    --secondColor:#e4f1eb;
+    --aboutColor:#173F5F;
+    --profileColor:#E0E0E0;
+    --err-text:rgb(226, 16, 16);
+}
+.main-color{
+ color: var(--mainColor);
+}
+.form-control:focus ,.form-check-input:focus {
+    background-color: #fff;
+    border-color: var(--mainColor);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(118 186 153 / 25%);
+}
+.form-check-input:checked{
+  color: #76ba99;
+  background-color: #76ba99;
+  border: #76ba99;
+}
+img :not(.navbar-brand){
+  border-radius: 15px;
+}
+a{
+  color: #76ba99;
+  cursor: pointer;
+}
+a:hover{
+  color: #033b20;
+}
+.fs-6{
+  font-size:.9rem;
+}
+.ngx-pagination li.current{
+  display: flex !important;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50% !important;
+  background: #76ba99;
+  border: 1px solid #76ba99;
+  padding: .1875rem .625rem;
+  position: relative;
+  color: #fefefe;
+  cursor: pointer;
+}
+.ngx-pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ngx-pagination  a:hover{
+  padding: .1875rem .625rem;
+  border-radius:50%;
+  background: #fff !important;
+}
+.ngx-pagination .small-screen{
+  display: none !important;
+}
+.book
+{
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
+   
+}

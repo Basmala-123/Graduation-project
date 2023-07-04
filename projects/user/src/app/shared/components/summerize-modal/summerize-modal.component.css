@@ -1,0 +1,18 @@
+.btn.summerize{
+  position: fixed;
+  right:10px;
+  bottom:20px;
+  z-index:111;
+}
+.summerize img{
+  width:100px;
+  height:100px;
+  background-color: #e4f1eb;
+  border-radius: 50%;
+  border:1px solid transparent;
+}
+.modal-footer .btn.Summerize{
+  color:#ffff;
+  background-color:#76ba99;
+  border:1px solid transparent;
+}

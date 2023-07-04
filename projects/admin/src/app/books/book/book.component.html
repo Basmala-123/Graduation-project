@@ -1,0 +1,122 @@
+
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg ">
+    <button class="btn btn-outline-success ms-auto" data-bs-toggle="modal"
+      data-bs-target="#addBook" type="submit">Add Book</button>
+  </nav>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <!-- <th scope="col">Book Name</th> -->
+        <th scope="col">Author</th>
+        <th scope="col">category</th>
+        <th scope="col">Publish</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of bookList" >
+        <th >{{book.id}}</th>
+        <!-- <td>{{book.name}}</td> -->
+        <td>{{book.author}}</td>
+        <td>{{book.category}}</td>
+        <td>{{book.publish}}</td>
+
+        <td>
+          <button class="btn btn-primary me-2" data-bs-toggle="modal"
+          data-bs-target="#editBook" (click)="editBook(book)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteBook(book)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+    <!-- Modal Add Book -->
+  <div class="modal fade" id="addBook" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Book</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="bookdetail">
+            <!-- <div class="mb-3">
+              <label for="bookname" class="form-label">Book Name</label>
+              <input type="text" formControlName="name" class="form-control" id="bookname">
+            </div> -->
+            <div class="mb-3">
+              <label for="authorname" class="form-label">Author id</label>
+              <input type="number" formControlName="author" class="form-control" id="authorname">
+            </div>
+            <div class="mb-3">
+              <label for="Published" class="form-label">Published Time</label>
+              <input type="date" formControlName="publish" class="form-control" id="Published">
+            </div>
+            <div class="mb-3">
+              <label for="type" class="form-label">Book category</label>
+              <input type="number" formControlName="type" class="form-control" id="type">
+            </div>
+            <div class="mb-3">
+              <label for="bookFile" class="form-label">Upload your book</label>
+              <input class="form-control" formControlName="bookFile"  type="file" id="bookFile">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="addBook()">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal Edit Book  -->
+  <div class="modal fade" id="editBook" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Book</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="bookdetail">
+            <div class="mb-3">
+              <label for="bookname" class="form-label">Book Name</label>
+              <input type="text" formControlName="name" class="form-control" id="bookname">
+            </div>
+            <div class="mb-3">
+              <label for="authorname" class="form-label">Author Name</label>
+              <input type="text" formControlName="author" class="form-control" id="authorname">
+            </div>
+            <div class="mb-3">
+              <label for="Published" class="form-label">Published Time</label>
+              <input type="date" formControlName="publish" class="form-control" id="Published">
+            </div>
+            <div class="mb-3">
+              <label for="type" class="form-label">Book Type</label>
+              <input type="text" formControlName="type" class="form-control" id="type">
+            </div>
+            <div class="mb-3">
+              <label for="bookFile" class="form-label">Upload your book</label>
+              <input class="form-control" formControlName="bookFile"  type="file" id="bookFile">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateBook()">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

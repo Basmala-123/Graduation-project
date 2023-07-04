@@ -1,0 +1,143 @@
+
+.details p
+{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #9D9D9D;
+}
+.book img{
+  height:400px;
+}
+.book-detail h6
+{
+    color: #9D9D9D;
+}
+.star-icon .solid-str
+{
+    color: #FECB1C;
+}
+.reg-form form input
+{
+    background-color: #e9f3ff;
+    border: none;
+}
+.btn{
+  border: 1px solid #76BA99;
+  color: #76BA99;
+  transition: all 0.4s ease-in-out;
+
+}
+.btn:hover{
+  background-color: #76BA99;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.button-btn button
+{
+    border: 1px solid #76BA99;
+    border-radius: 7px;
+    font-weight: 500;
+    font-size: .9rem;
+    letter-spacing: 0.1em;
+    color: #76BA99;
+    transition: all 0.4s ease-in-out;
+}
+.button-btn button:hover
+{
+    background-color: var(--aboutColor);
+    color: #ffff;
+}
+.line
+{
+    height: 1.5px;
+    background-color: var(--profileColor);
+}
+.layer-page
+{
+    background-color: rgba(0,0,0,0.2);
+    /* height: 45vh; */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    display: none;
+    transition: display 0.3s ease-in;
+    border-radius: 4px;
+}
+.layer-page button
+{
+    background-color: var(--mainColor);
+    width: 90%;
+    position: relative;
+    left: 5%;
+    border-radius: 2px !important;
+    top: 70%;
+    font-weight: 100 !important;
+}
+.position-layer:hover .layer-page
+{
+    display: block;
+}
+.my-slide
+{
+    margin-top: 18px;
+    background-color: var(--mainColor) !important;
+    width: 15px;
+    height: 15px !important;
+    border-radius: 50%;
+}
+.position-layer
+{
+    box-shadow: 8px 8px 6px rgb(233, 231, 231), -6px -6px 6px rgb(236, 234, 234);
+    border-radius: 4px;
+}
+.divid-line
+{
+    background-color: var(--profileColor);
+    height: 1px;
+}
+/* ------small screan------ */
+@media screen and (max-width:567px) {
+    .button-btn .btn-1
+    {
+        margin-bottom: 6px !important;
+    }
+    .card-body h5
+    {
+        font-size: 14px !important;
+        font-weight: 300 !important;
+    }
+    .card-body h6
+    {
+        font-weight: 200 !important;
+        font-size: 12px !important;
+    }
+   .layer-page button
+    {
+        width:100% !important;
+        left: 0px;
+        top: 72% !important;
+    }
+    .layer-page
+    {
+        height: 100% !important;
+    }
+}
+
+
+.label{
+  background-color: #e9f3ff;
+  padding: .2rem .5rem;
+  border-radius :10px;
+}
+/* -------mediuam screan-------- */
+@media screen and (max-width:768px) {
+    .layer-page button
+    {
+        width:100% !important;
+        left: 0;
+    }
+}
