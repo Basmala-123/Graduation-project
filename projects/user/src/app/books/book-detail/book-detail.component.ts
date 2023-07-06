@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BookServicesService } from '../book-services.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { GetDataService } from '../../shared/services/get-data.service';
+
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',

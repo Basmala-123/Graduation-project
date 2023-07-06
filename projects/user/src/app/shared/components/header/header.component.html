@@ -1,27 +1,48 @@
 <header class="mb-5">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid justify-content-between top-nav">
+    <div class="container-fluid justify-content-between ">
       <a class="navbar-brand" routerLink="/home"
         ><img src="../../../../assets/images/colorLogo.png" alt=""
       /></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <ul class="d-flex navbar-nav smallscreen flex-row d-none  ">
+        <li class="nav-item">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle user"type="button"data-bs-toggle="dropdown"aria-expanded="false">
+              <img
+                src="https://tse4.mm.bing.net/th?id=OIP.jixXH_Els1MXBRmKFdMQPAHaHa&pid=Api&P=0&h=180"
+                alt=""
+              />
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item text-capitalize" routerLink="profile"
+                  >my Profile</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item text-capitalize"routerLink="/login"
+                  (click)="logout()">
+                  logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item position-relative">
+          <a routerLink="/profile" class="nav-link">
+            <i class="fa-regular fa-heart me-1"></i></a
+          >
+          <span class="position-absolute wishNum">{{wishitem.length}} </span>
+        </li>
+      </ul>
+      <button class="navbar-toggler"type="button"data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"aria-controls="navbarSupportedContent"aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div
-        class="d-flex ms-auto mb-2 mb-lg-0 w-100 justify-content-end align-items-end"
-      >
-        <form
-          class="d-flex searchform mt-2 me-3 position-relative"
-          role="search"
-        >
+      <div class="d-flex ms-auto mb-2 mb-lg-0 w-100 justify-content-end align-items-end top-nav">
+        <form class="d-flex searchform mt-2 me-3 position-relative"
+          role="search">
           <input
             class="form-control rounded-pill ms-2"
             [formControl]="searchControl"
@@ -33,7 +54,7 @@
           ></i>
           <ul class="result-search position-absolute d-block" *ngIf="isVisible">
             <li *ngFor="let book of searchResults">
-              <div class="d-flex align-items-center">
+              <a routerLink="/book-detail/{{ book.id }}" class="d-flex align-items-center">
                 <div style="width: 55px; height: 75px">
                   <img
                     src="https://books.mhouses.net/{{ book.image }}"
@@ -46,21 +67,16 @@
                   class="text-decoration-none ms-3"
                   >{{ book.title }}</a
                 >
-              </div>
+              </a>
             </li>
           </ul>
         </form>
-        <ul class="d-flex navbar-nav">
+        <ul class="d-flex navbar-nav ">
           <li class="nav-item">
             <div class="dropdown">
-              <button
-                class="btn dropdown-toggle user"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <button class="btn dropdown-toggle user"type="button"data-bs-toggle="dropdown"aria-expanded="false">
                 <img
-                  src="http://cdn.onlinewebfonts.com/svg/download_323605.png"
+                  src="https://tse4.mm.bing.net/th?id=OIP.jixXH_Els1MXBRmKFdMQPAHaHa&pid=Api&P=0&h=180"
                   alt=""
                 />
                 {{ user_name }}
@@ -72,11 +88,8 @@
                   >
                 </li>
                 <li>
-                  <a
-                    class="dropdown-item text-capitalize"
-                    routerLink="/login"
-                    (click)="logout()"
-                  >
+                  <a class="dropdown-item text-capitalize"routerLink="/login"
+                    (click)="logout()">
                     logout
                   </a>
                 </li>
@@ -177,12 +190,9 @@
       >
     </li>
     <li class="nav-item">
-      <a
-        class="nav-link text-capitalize"
+      <a class="nav-link text-capitalize"
         routerLinkActive="test"
-        routerLink="/articles"
-        >articles</a
-      >
+        routerLink="/articles">articles</a>
     </li>
   </ul>
 </header>

@@ -12,7 +12,6 @@
             <div class="book-detail  ps-4">
                 <h6 class="text-capitalize pt-4 fw-bold">Featured Book of the week</h6>
                 <h2 class="fw-bold text-capitalize">{{book.title}}</h2>
-                <span class="text-dark me-2">({{book.rate}})</span>
                 <span class="star-icon my-2" *ngFor="let i of range(book.rate)">
                     <i class="fa-solid fa-star solid-str" ></i>
                 </span>

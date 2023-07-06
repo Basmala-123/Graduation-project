@@ -92,6 +92,10 @@ span.wishNum{
   .top-nav .navbar-nav {
     display: none !important;
   }
+  .smallscreen{
+    display:flex !important;
+  }
+
   form {
     width: 100% !important;
   }

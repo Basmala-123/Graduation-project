@@ -15,8 +15,7 @@ export class AppComponent {
     router.events.subscribe((val:any)=>{
       if(val instanceof NavigationEnd){
         if (val.url=='/login'||val.url=='/signup')this.isVisible=false;
-        else this.isVisible=true;
-      }   
+        else this.isVisible=true;}   
     } )
   }
 

@@ -13,8 +13,7 @@
   </div>
   <div class="card-body p-0 mt-2 text-center position-relative">
     <p class="card-text text-capitalize m-0 fw-bold">{{book.title}}</p>
-    <p class="card-text m-0 fw-light fs-6">{{ book.author ? book.author.name : '' }}</p>
-    <span class="text-dark me-2">({{book.rate}})</span>
+    <p class="card-text m-0 fw-light fs-6 text-capitalize">{{ book.author ? book.author.name : '' }}</p>
     <span class="rate" *ngFor="let i of range(book.rate)">  
       <i class="fa-solid fa-star"></i>
     </span>
