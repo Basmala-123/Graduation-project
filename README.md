@@ -5,10 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Explaining the idea you can see this video 
 
-
-
-https://github.com/Basmala-123/Graduation-project/assets/82044606/2441bab5-0c67-4817-8268-29f5447b9f51
-
+https://github.com/Basmala-123/Graduation-project/assets/82044606/371952fc-163d-45d3-8706-dc441ff0e699
 
 
 
