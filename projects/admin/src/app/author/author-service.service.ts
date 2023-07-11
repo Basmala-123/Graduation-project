@@ -2,25 +2,42 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { authorModel } from './authorModel';
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorServiceService {
-
   constructor(private _httpClient:HttpClient) { }
- 
-  showAuthors():Observable<any>{
-    return this._httpClient.get("http://127.0.0.1:8000/api/author/showAll")
+  private token: string | null = localStorage.getItem('token');
+  addAuthor(value: any): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    });
+    const data = new FormData();
+    data.append('name', value.name);
+    data.append('description', value.description);
+    data.append('image', value.image, value.name);
+    return this._httpClient.post('https://books.mhouses.net/api/author/add', data, { headers })
   }
-  addAuthors(data:authorModel):Observable<any>{
-    return this._httpClient.post("http://127.0.0.1:8000/api/author/add",data)
+  showAllAuthor():Observable <any>{
+   return this._httpClient.get('https://books.mhouses.net/api/author/showAll')
   }
-  editAuthors(id:number,data:any):Observable<any>{
-    return this._httpClient.post(`http://127.0.0.1:8000/api/author/edit/${id}`,data)
+  deleteAuthor(id:number):Observable <any>{
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    });
+    return this._httpClient.post(`https://books.mhouses.net/api/author/delete/${id}`,{},{ headers })
   }
-  deleteAuthors(id:number):Observable<any>{
-   
-        return this._httpClient.post(`http://127.0.0.1:8000/api/author/delete/${id}`,'');
+  editAuthor(id:number,value:any):Observable <any>{
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    });
+    const data = new FormData();
+    data.append('name', value.name);
+    data.append('description', value.description);
+    data.append('image',  value.image, value.name);
+    data.forEach((value, key) => {
+      console.log(`${key}: ${value}`);
+    });
+    return this._httpClient.post(`https://books.mhouses.net/api/author/edit/${id}`,data,{headers})
   }
 }

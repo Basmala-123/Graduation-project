@@ -1,15 +1,14 @@
 
-<div *ngIf="isLoading" class="d-flex" id="wrapper">
+<div  class="d-flex" id="wrapper" *ngIf="isLoading" >
   <div class="border-dark position-relative" id="sidebar-wrapper"  [ngClass]="status ? 'hide' : 'show'">
     <div class="list-group list-group-flush">
-      <a routerLink="/home" class="list-group-item list-group-item-action text-light"> <i class="fa-solid fa-house me-3"></i>Home</a>
-      <a routerLink="/books" class="list-group-item list-group-item-action text-light"> <i class="fa-solid fa-book-open-reader me-3"></i>Books</a>
-      <a href="#" class="list-group-item list-group-item-action text-light"><i class="fa-solid fa-user me-3"></i>Admin</a>
-      <a routerLink="/author"  class="nav-link list-group-item list-group-item-action text-light"><i class="fa-solid fa-user-pen me-3"></i>Author</a>
-      <a routerLink="/article" class="list-group-item list-group-item-action text-light"><i class="fa-solid fa-newspaper me-3"></i> Article</a> 
-      <a routerLink="/category" class="list-group-item list-group-item-action text-light"><i class="fa-solid fa-folder-open me-3"></i>category</a>     
-      <a routerLink="/user" class="list-group-item list-group-item-action text-light"><i class="fa-solid fa-users me-3"></i>Users</a>
-      <a href="#" class="list-group-item list-group-item-action text-light"><i class="fa-solid fa-gear me-3"></i>Edit</a>
+      <a  routerLink="home" class="list-group-item list-group-item-action text-light"> <i class="fa-solid fa-house me-3"></i>Home</a>
+      <a routerLink="books" class="list-group-item list-group-item-action text-light"> <i class="fa-solid fa-book-open-reader me-3"></i>Books</a>
+      <a routerLink="admin" class="list-group-item list-group-item-action text-light"><i class="fa-solid fa-user me-3"></i>Admin</a>
+      <a  routerLink="author"  class="nav-link list-group-item list-group-item-action text-light"><i class="fa-solid fa-user-pen me-3"></i>Author</a>
+      <a routerLink="article" class="list-group-item list-group-item-action text-light"><i class="fa-solid fa-newspaper me-3"></i> Article</a> 
+      <a routerLink="category" class="list-group-item list-group-item-action text-light"><i class="fa-solid fa-folder-open me-3"></i>category</a>     
+      <a routerLink="user" class="list-group-item list-group-item-action text-light"><i class="fa-solid fa-users me-3"></i>Users</a>
     </div>
     <div>
       <button class="btn toggle-dash " (click)="clickEvent()"><i class="fa-solid fa-bars fa-2xs"></i></button>

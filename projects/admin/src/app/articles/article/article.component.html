@@ -2,100 +2,97 @@
   <!-- nav bar -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
         <button class="btn btn-outline-success text-capitalize ms-auto" data-bs-toggle="modal" data-bs-target="#addArticle"  type="submit">add article</button>
       </div>
     </div>
   </nav>
   <!-- table -->
-  <table class="table table-hover">
+  <table class="table table-hover mt-4">
     <thead>
       <tr>
-        <th scope="col"class="text-capitalize text-center">title</th>
-        <th scope="col" class="text-capitalize text-center">content</th>
-        <th scope="col" class="text-capitalize text-center">image</th>
-        <th scope="col" class="text-capitalize text-center">action</th>
+        <th scope="col"class="text-capitalize text-center ">title</th>
+        <th scope="col" class="text-capitalize text-center ">content</th>
+        <th scope="col" class="text-capitalize text-center ">image</th>
+        <th scope="col" class="text-capitalize text-center ">action</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th class="text-capitalize text-center" >hello world</th>
-        <td class="text-capitalize text-center">Mark</td>
-        <td class="text-capitalize text-center">Otto</td>
-        <td class=" text-center"> 
-          <button class="btn btn-primary me-2" data-bs-toggle="modal"
-          data-bs-target="#editArticle" >Edit</button>
-          <button class="btn btn-danger" (click)="deleteArticle()"  >Delete</button>
+      <tr *ngFor="let article of articleList">
+        <td class="text-capitalize text-center pt-5" >{{article.title}}</td>
+        <td class="text-capitalize text-center pt-5">{{article.content}}</td>
+        <td class="text-capitalize text-center pt-3">
+          <img src="https://books.mhouses.net/{{article.image}}" class="" alt="">
+        </td>
+        <td class=" text-center pt-4"> 
+          <button class="btn btn-primary " data-bs-toggle="modal"
+          data-bs-target="#editArticle" (click)="saveEdit(article)"> <i class="fa-solid fa-pen-to-square"></i> Edit</button>
+          <button class="btn btn-danger mt-3 " (click)="deleteArticle(article)"  > <i class="fa-solid fa-trash"></i> Delete</button>
         </td>
       </tr>
-      
     </tbody>
   </table>
-  
 <!--modal add article -->
 <div class="modal fade" id="addArticle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title fs-5" id="exampleModalLabel">add new article</h2>
+        <h2 class="modal-title fs-4 text-capitalize" id="exampleModalLabel">add new article</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="articleDetails">
+        <form [formGroup]="form" (submit)="addArticle()">
           <div class="mb-3">
-            <label for="exampleInputTitle" class="form-label text-capitalize">article title</label>
+            <label for="exampleInputTitle" class="form-label text-capitalize fs-5">article title</label>
             <input type="text" formControlName="title"   class="form-control" id="exampleInputTitle">
           </div>
           <div class="mb-3">
-            <label for="exampleInputContent" class="form-label text-capitalize">article content</label>
+            <label for="exampleInputContent" class="form-label text-capitalize fs-5">article content</label>
             <input type="text" formControlName="content" class="form-control" id="exampleInputContent">
           </div>
-          <div class="mb-3">
-            <label for="exampleInputImage" class="form-label text-capitalize">article image</label>
-            <input type="file" formControlName="image"   class="form-control" id="exampleInputImage">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary text-capitalize" data-bs-dismiss="modal" >add</button>
           </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary text-capitalize" (click)="addArticle()" >add</button>
+        <div class="mb-3 w-100">
+          <label for="exampleInputImage" class="form-label text-capitalize fs-5">article image</label>
+          <input placeholder="upload your file" class="w-100" type="file" #filePicker (change)="onImagePicked($event)"/>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 <!-- modal edit article -->
 <div class="modal fade" id="editArticle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title fs-5 text-capitalize" id="exampleModalLabel">edit  article</h2>
+        <h2 class="modal-title fs-5 text-capitalize" id="exampleModalLabel fs-4">edit  article</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="articleDetails">
+        <form [formGroup]="form2" (submit)="editArticle()">
           <div class="mb-3">
-            <label for="exampleInputTitle2" class="form-label text-capitalize">article title</label>
+            <label for="exampleInputTitle2" class="form-label text-capitalize fs-5">article title</label>
             <input type="text" formControlName="title"   class="form-control" id="exampleInputTitle2">
           </div>
           <div class="mb-3">
-            <label for="exampleInputContent2" class="form-label text-capitalize">article content</label>
+            <label for="exampleInputContent2" class="form-label text-capitalize fs-5">article content</label>
             <input type="text" formControlName="content" class="form-control" id="exampleInputContent2">
           </div>
-          <div class="mb-3">
-            <label for="exampleInputImage2" class="form-label text-capitalize">article image</label>
-            <input type="file" formControlName="image"   class="form-control" id="exampleInputImage2">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
+          <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary text-capitalize"  >save</button>
+        <button type="submit" class="btn btn-primary text-capitalize" data-bs-dismiss="modal" >save</button>
+      </div>
+        </form>
+        <div class="mb-3">
+            <label for="exampleInputImage2" class="form-label text-capitalize">article image</label>
+            <input type="file" #filePicker (change)="onImageEdit($event)"/>
+          </div>
       </div>
     </div>
   </div>

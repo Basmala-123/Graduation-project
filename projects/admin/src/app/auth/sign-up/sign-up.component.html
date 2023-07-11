@@ -1,5 +1,4 @@
 <section class="w-75 mt-5 mx-auto">
-  <div *ngIf="errorMessage"  class="alert text-danger">{{errorMessage}}</div>
     <form  [formGroup]="adminInfo">
         <div class="mb-3">
             <label for="adminNameInput" class="form-label text-capitalize fs-5">admin name</label>
@@ -15,6 +14,11 @@
           <label for="passowrdInput" class="form-label text-capitalize fs-5">Password</label>
           <input type="password" formControlName="password" class="form-control" id="passowrdInput">
         </div>
-        <button type="button" class="btn btn-success text-capitalize" (click)="signUpForm()" >sign up</button>
+        <div class="d-flex">
+          <button type="button" class="btn btn-success text-capitalize" (click)="signUpForm(adminInfo)"  >sign up</button>
+        </div>
       </form>
+      
+      
+      
 </section>

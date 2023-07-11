@@ -3,37 +3,66 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClient} from '@angular/common/http';
 import { bookmodel } from './bookmodel';
 import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http'
 @Injectable({
   providedIn: 'root'
 })
-
 export class BooksService {
- addBookURl:string;
- getBookURL:string;
- updateBookURL:string;
- deleteBookURL:string;
-//  show:string;
-
-  constructor(private _httpClient:HttpClient) {
-    this.addBookURl='https://dc82-105-197-97-118.ngrok-free.app/api/book/add';
-    this.getBookURL='https://dc82-105-197-97-118.ngrok-free.app/api/book/showAll';
-    this.updateBookURL='https://dc82-105-197-97-118.ngrok-free.app/api/book/edit';
-    this.deleteBookURL='https://dc82-105-197-97-118.ngrok-free.app/api/book/delete';
-    // this.show="https://dc82-105-197-97-118.ngrok-free.app/api/book/showAll";
+  constructor(private _httpClient:HttpClient) {}
+   private token: string | null = localStorage.getItem('token');
+   addBook(value:any,file:any):Observable <any>{
+    const headers = new HttpHeaders({ 
+      Authorization: `Bearer ${this.token}` // Add the token to the Authorization header
+    });
+    const data = new FormData();
+    data.append('author_id', value.authorName);
+    data.append('title', value.title);
+    data.append('image',value.image)
+    data.append('slug',"asmaa");
+    data.append('ibsn',"asmaa");
+    data.append('description',value.description)
+    data.append('rate','2')
+    data.append('publish_year', value.publish);
+    data.append('category_id', value.category);
+    data.append('book', file);
+    data.append('name', "asmaa");
+    data.append('type', "asmaa");
+    data.forEach((value, key) => {
+      console.log(`${key}: ${value}`);
+    });
+    return this._httpClient.post('https://books.mhouses.net/api/book/add' , data , {headers})
    }
-   showbook():Observable <any>{
-    return this._httpClient.get("https://dc82-105-197-97-118.ngrok-free.app/api/book/showAll");
+   showAllBooks():Observable <any>{
+    return this._httpClient.get('https://books.mhouses.net/api/book/showAll')
    }
-   addBook(b:bookmodel):Observable <bookmodel>{
-    return this._httpClient.post<bookmodel>(this.addBookURl,b);
+   deleteBook(id:number):Observable <any>{
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    });
+    return this._httpClient.post(`https://books.mhouses.net/api/book/delete/${id}`,{},{headers})
    }
-   getAllBooks():Observable <bookmodel[]> {
-    return this._httpClient.get<bookmodel[]>(this.getBookURL)
-   }
-   updateBook(b:bookmodel):Observable <bookmodel>{
-    return this._httpClient.put<bookmodel>(this.updateBookURL,b);
-   }
-   deleteBook(b:bookmodel):Observable <bookmodel>{
-    return this._httpClient.delete<bookmodel>(this.deleteBookURL+'/'+b.id);
+   editBook(id:number,value:any,file:any):Observable <any>{
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    });
+    const data = new FormData();
+    data.append('author_id', value.authorName);
+    data.append('title', value.title);
+    data.append('image',value.image)
+    data.append('slug',"asmaa");
+    data.append('ibsn',"asmaa");
+    data.append('description','description')
+    data.append('rate','2')
+    data.append('publish_year', value.publish);
+    data.append('category_id', value.category);
+    data.append('book', file);
+    data.append('name', "asmaa");
+    data.append('type', "asmaa");
+    data.forEach((value, key) => {
+      console.log(`${key}: ${value}`);
+    });
+    return this._httpClient.post(`https://books.mhouses.net/api/book/edit/${id}` , data ,{headers})
    }
 }
+ 
+

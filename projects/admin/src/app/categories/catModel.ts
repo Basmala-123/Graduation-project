@@ -1,5 +1,6 @@
 export class categoryModel{
-    name : string ='';
-    description :string = '';
-    image : string ='';
+    public name : string ='';
+   public description :string = '';
+   public image : string ='';
+   public id:number=0;
 }

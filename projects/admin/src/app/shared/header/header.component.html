@@ -1,7 +1,10 @@
 <nav class="navbar">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img src="./../../../assets/white-logo.png" alt="Bootstrap" width="100" >
+      <img class="brand-logo w-100" src="./../../../assets/white-logo.png" alt="Bootstrap"  >
     </a>
+    <span *ngIf="login"  (click)="signOutFunction()"    class="btn btn-primary px-4 py-2 fs-5 text-capitalize text-white">logout</span>
+    <!-- <span routerLink="login"      class="btn btn-primary px-4 py-2 fs-5 text-capitalize text-white">login</span> -->
   </div>
 </nav>
+

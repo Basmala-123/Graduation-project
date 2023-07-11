@@ -17,22 +17,14 @@ export class LogInComponent {
   
   constructor(private _AuthService:AuthService , private _Router : Router){}
   errorMessage:string='';
-  adminLogin(){
-    // console.log(this.adminDataInfo.value)
-    this._AuthService.logIn(this.adminDataInfo.value).subscribe({
-      next:(response)=>{
-        if(response.message === "success"){
-          localStorage.setItem('adminToken',response.token)
-          this._AuthService.saveAminData()
-          this._Router.navigate(['/home'])
-        }
-        else
-        {
-          this.errorMessage=response.message;
-        }  
-        
-
-      }
+  adminLogin(adminDataInfo : FormGroup){
+     console.log(this.adminDataInfo)
+     let savedtoken=localStorage.getItem('token');
+    this._AuthService.logIn(this.adminDataInfo.value).subscribe((res:any)=>{
+      console.log(res)
+      localStorage.setItem('token',res.token);
+      this._AuthService.saveAdminData();
+      this._Router.navigate(['/home'])
     })
   }
 }

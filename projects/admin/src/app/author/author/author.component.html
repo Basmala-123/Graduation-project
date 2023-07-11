@@ -4,26 +4,27 @@
           data-bs-target="#addAuthor" type="submit" >add author</button>
       </nav>
       <!-- table -->
-      <table class="table">
+      <table class="table table-hover mt-4">
         <thead>
           <tr>
-            <th scope="col" class="text-capitalize">name</th>
-            <th scope="col" class="text-capitalize">description </th>
-            <th scope="col" class="text-capitalize">image</th>
-            <th scope="col" class="text-capitalize">action</th>
+            <th scope="col" class="text-capitalize text-center">name</th>
+            <th scope="col" class="text-capitalize text-center">description </th>
+            <th scope="col" class="text-capitalize text-center">image</th>
+            <th scope="col" class="text-capitalize text-center">action</th>
           </tr>
         </thead>
         <tbody>
-
             <!-- table body -->
-            <tr *ngFor="let author of authorList">
-                <td class="text-capitalize">{{author.name}}</td>
-                <td class="text-capitalize">{{author.description}}</td>
-                <td class="text-capitalize">author image</td>
-                <td>
+            <tr *ngFor="let author of authorList" class="">
+                <td class="text-capitalize text-center pt-5">{{author.name}}</td>
+                <td class="text-capitalize text-center pt-5">{{author.description}}</td>
+                <td class="text-capitalize text-center">
+                  <img src="https://books.mhouses.net/{{author.image}}" alt="">
+                </td>
+                <td class="text-center pt-4">
                     <button class="btn btn-primary me-2" data-bs-toggle="modal"
-                    data-bs-target="#editAuthor" >Edit</button>
-                    <button class="btn btn-danger" [value]="author.id" (click)="deleteAuthor($event)"  >Delete</button>
+                    data-bs-target="#editAuthor" (click)="saveEditAuthor(author)" >Edit</button>
+                    <button class="btn btn-danger" (click)="deleteAuthor(author)"   >Delete</button>
                   </td>
             </tr>
         </tbody>
@@ -37,10 +38,9 @@
             <h2 class="text-capitalize modal-title fs-5" id="exampleModalLabel">add new author</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal"
               aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-           
-            <form [formGroup]="authorDetails">
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="form" (submit)="addAuthor()"> 
                 <div class="mb-3">
                   <label for="authorName" class="text-capitalize form-label">author name</label>
                   <input type="text" formControlName="name" class="form-control" id="authorName">
@@ -49,54 +49,52 @@
                   <label for="description" class="text-capitalize form-label">description </label>
                   <input type="text" formControlName="description" class="form-control" id="description">
                 </div>
-                <div class="mb-3">
-                    <label for="authorImage" class="text-capitalize form-label">upload your image</label>
-                    <input class="form-control" formControlName="image"  type="file" id="authorImage">
-                  </div>
                 <div class="modal-footer">
                   <button type="button" class="btn text-capitalize btn-secondary"
                     data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn text-capitalize btn-primary" data-bs-dismiss="modal" (click)="addAuthor()" >add</button>
+                  <button type="submit" class="btn text-capitalize btn-primary" data-bs-dismiss="modal" >add</button>
                 </div>
               </form>
+              <div class="mb-3 w-100">
+                <label for="authorImage" class="text-capitalize form-label">upload your author image</label>
+                <input class="w-100 py-2" type="file"  (change)="onImagePicked($event)"/>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
     <!-- edit author -->
-
-    <div class="modal fade" id="editAuthor" tabindex="-1"
+     <div class="modal fade" id="editAuthor" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title fs-5" id="exampleModalLabel">edit author</h2>
+          <h2 class="modal-title fs-5 text-capitalize" id="exampleModalLabel">edit author</h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal"
             aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form [formGroup]="authorDetails">
-                <div class="mb-3">
-                  <label for="authorName2" class="text-capitalize form-label">author name</label>
-                  <input type="text" formControlName="name" class="form-control" id="authorName2">
-                </div>
+            <form [formGroup]="form2" (submit)="editAuthor()">
+              <div class="mb-3">
+                <label for="authorName2" class="text-capitalize form-label">author name</label>
+                <input type="text" formControlName="name" class="form-control" id="authorName2">
+              </div>
                 <div class="mb-3">
                   <label for="description2" class="text-capitalize form-label">description </label>
                   <input type="text" formControlName="description" class="form-control" id="description2">
                 </div>
-                <div class="mb-3">
-                    <label for="authorImage2" class="text-capitalize form-label">upload your image</label>
-                    <input class="form-control" formControlName="image"  type="file" id="authorImage2">
+                  <div class="modal-footer">
+                    <button type="button" class="btn text-capitalize btn-secondary"
+                      data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn text-capitalize btn-primary" data-bs-dismiss="modal"   >save</button>
                   </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn text-capitalize btn-secondary"
-                    data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn text-capitalize btn-primary" data-bs-dismiss="modal" (click)="editAuthor()"  >save</button>
-                </div>
               </form>
+              <div class="mb-3 w-100">
+                <label for="authorImage" class="text-capitalize form-label">upload your author image</label>
+                <input class="w-100 py-2" type="file"  (change)="onImageEdit($event)"/>
+              </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 </section>

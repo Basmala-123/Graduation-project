@@ -1,20 +1,8 @@
 <section>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <button class="text-capitalize btn btn-outline-success ms-auto" data-bs-toggle="modal" data-bs-target="#addUser">add user</button>
-          </div>
-        </div>
-      </nav>
-
       <!-- table -->
-      <table class="table table-hover">
+      <table class="table table-hover mt-5">
         <thead>
-          <tr>
+          <tr >
             <th scope="col" class="text-capitalize text-center">user name</th>
             <th scope="col" class="text-capitalize text-center">email</th>
             <th scope="col" class="text-capitalize text-center">password</th>
@@ -23,88 +11,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th class="text-capitalize text-center">asmaa</th>
-            <td class=" text-center">asmaa@gmail.com</td>
-            <td class=" text-center">as123</td>
-            <td class=" text-center">0102345677</td>
+          <tr *ngFor="let user of userObject">
+            <td class="text-capitalize text-center">{{user.name}}</td>
+            <td class=" text-center">{{user.email}}</td>
+            <td class=" text-center">{{user.password}}</td>
+            <td class=" text-center">{{user.phone}}</td>
             <td class="text-center">
-                <button type="button" class="btn text-capitalize me-2 text-white btn-info" data-bs-target="#editUser" data-bs-toggle="modal">edit</button>
-                <button type="button" class="btn text-capitalize btn-danger" (click)=" deleteUser()">delete</button></td>
+                <button type="button" class="btn text-capitalize btn-danger" (click)="deleteUser(user)" ><i class="fa-solid fa-trash"></i> delete</button></td>
             </tr>
-         
         </tbody>
-      </table>
-
-      <!-- Modal / add -->
-<div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title fs-5 text-capitalize " id="exampleModalLabel">add new user</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form [formGroup]="userDetails">
-                <div class="mb-3">
-                  <label for="userNameInput1" class="form-label text-capitalize">user name</label>
-                  <input type="text" formControlName="name" class="form-control" id="userNameInput1" >
-                </div>
-                <div class="mb-3">
-                    <label for="emailInput1" class="form-label text-capitalize">email</label>
-                    <input type="email" formControlName="email" class="form-control" id="emailInput1" >
-                  </div>
-                  <div class="mb-3">
-                    <label for="passwordInput1" class="form-label text-capitalize">password</label>
-                    <input type="password" formControlName="password" class="form-control" id="passwordInput1" >
-                  </div>
-                  <div class="mb-3">
-                    <label for="phoneInput1" class="form-label text-capitalize">phone</label>
-                    <input type="number" formControlName="phone" class="form-control" id="phoneInput1" >
-                  </div>
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="addUser()">add</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-     <!-- modal / edit -->
-     <div class="modal fade" id="editUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 class="modal-title fs-5 text-capitalize " id="exampleModalLabel">edit user</h2>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form [formGroup]="userDetails">
-                    <div class="mb-3">
-                      <label for="userNameInput2" class="form-label text-capitalize">user name</label>
-                      <input type="text" formControlName="name" class="form-control" id="userNameInput2" >
-                    </div>
-                    <div class="mb-3">
-                        <label for="emailInput2" class="form-label text-capitalize">email</label>
-                        <input type="email" formControlName="email" class="form-control" id="emailInput2" >
-                      </div>
-                      <div class="mb-3">
-                        <label for="passwordInput2" class="form-label text-capitalize">password</label>
-                        <input type="password" formControlName="password" class="form-control" id="passwordInput2" >
-                      </div>
-                      <div class="mb-3">
-                        <label for="phoneInput2" class="form-label text-capitalize">phone</label>
-                        <input type="number" formControlName="phone" class="form-control" id="phoneInput2" >
-                      </div>
-                  </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" (click)="editUser()">save</button>
-            </div>
-          </div>
-        </div>
-      </div>    
+      </table>      
 </section>

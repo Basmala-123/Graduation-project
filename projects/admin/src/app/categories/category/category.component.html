@@ -3,9 +3,7 @@
         <button class="btn text-capitalize btn-outline-success ms-auto" data-bs-toggle="modal"
           data-bs-target="#addCategory" type="submit">add category</button>
       </nav>
-
-      <!-- table -->
-      <table class="table table-hover">
+      <table class="table table-hover mt-4">
         <thead>
           <tr>
             <th scope="col" class="text-capitalize text-center">name</th>
@@ -15,22 +13,20 @@
           </tr>
         </thead>
         <tbody>
-
-            <!-- table body -->
-            <tr>
-                <td class="text-capitalize text-center">asmaa</td>
-                <td class="text-capitalize text-center">web development</td>
-                <td class="text-capitalize text-center">category </td>
-                <td class="text-center">
-                    <button class="btn btn-primary me-2" data-bs-toggle="modal"
-                    data-bs-target="#editCategory" (click)="editCategory()" >Edit</button>
-                    <button class="btn btn-danger" (click)="deleteCtegory()"  >Delete</button>
+            <tr  *ngFor="let category of catList">
+                <td class="text-capitalize text-center pt-5">{{category.name }}</td>
+                <td class="text-capitalize text-center pt-5">{{category.description }}</td>
+                <td class="text-capitalize text-center">
+                  <img class="image" src="https://books.mhouses.net/{{category.image}}" alt="">
+                </td>
+                <td class="text-center ">
+                    <button class="btn btn-primary me-2 mt-4" data-bs-toggle="modal"
+                    data-bs-target="#editCategory" (click)="saveEdit(category)" ><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                    <button class="btn btn-danger mt-4" (click)="deleteCtegory(category)"  ><i class="fa-solid fa-trash"></i> Delete</button>
                   </td>
             </tr>
         </tbody>
       </table>
-
-      <!-- add category -->
       <div class="modal fade" id="addCategory" tabindex="-1"
       aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -39,64 +35,61 @@
             <h2 class="text-capitalize modal-title fs-5" id="exampleModalLabel">add new category</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal"
               aria-label="Close"></button>
-
           </div>
           <div class="modal-body">
-           
-            <form [formGroup]="x">
+            <form [formGroup]="form" (submit)="addCategory()">
                 <div class="mb-3">
                   <label for="authorName" class="text-capitalize form-label">category name</label>
                   <input type="text" formControlName="name" class="form-control" id="authorName">
                 </div>
                 <div class="mb-3">
                   <label for="description" class="text-capitalize form-label">description </label>
-                  <input type="text" formControlName="describtion" class="form-control" id="description">
+                  <input type="text" formControlName="description" class="form-control" id="description">
                 </div>
-                <div class="mb-3">
-                    <label for="authorImage" class="text-capitalize form-label">upload your category image</label>
-                    <input class="form-control" formControlName="image"  type="file" id="authorImage">
+                  <div class="modal-footer">
+                    <button type="button" class="btn text-capitalize btn-secondary"
+                      data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn text-capitalize btn-primary" data-bs-dismiss="modal" >add</button>
                   </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn text-capitalize btn-secondary"
-                    data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn text-capitalize btn-primary" data-bs-dismiss="modal" (click)="addCategory()" >add</button>
-                </div>
               </form>
+              <div class="mb-3 w-100">
+                <label for="authorImage" class="text-capitalize form-label">upload your category image</label>
+                <input class="w-100 py-2" type="file" #filePicker (change)="onImagePicked($event)"/>
+              </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- edit category -->
     <div class="modal fade" id="editCategory" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title fs-5" id="exampleModalLabel">edit category</h2>
+          <h2 class="modal-title fs-5" id="exampleModalLabel">Edit Category</h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal"
             aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form [formGroup]="x">
+            <form [formGroup]="form2" (submit)="editCategory()">
                 <div class="mb-3">
                   <label for="categoryName2" class="text-capitalize form-label">category name</label>
                   <input type="text" formControlName="name" class="form-control" id="categoryName2">
                 </div>
                 <div class="mb-3">
                   <label for="description2" class="text-capitalize form-label">category description </label>
-                  <input type="text" formControlName="describtion" class="form-control" id="description2">
+                  <input type="text" formControlName="description" class="form-control" id="description2">
                 </div>
-                <div class="mb-3">
-                    <label for="categoryImage2" class="text-capitalize form-label">upload your category image</label>
-                    <input class="form-control" formControlName="image"  type="file" id="categoryImage2">
-                  </div>
                 <div class="modal-footer">
                   <button type="button" class="btn text-capitalize btn-secondary"
                     data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn text-capitalize btn-primary" data-bs-dismiss="modal"  >save</button>
+                  <button type="submit" class="btn text-capitalize btn-primary" data-bs-dismiss="modal"  >save</button>
                 </div>
               </form>
+              <div class="mb-3 w-100">
+                <label for="authorImage" class="text-capitalize form-label">upload your category image</label>
+                <input class="w-100 py-2" type="file" #filePicker (change)="onImageEdit($event)"/>
+              </div>
         </div>
       </div>
     </div>
