@@ -1,8 +1,8 @@
 # Semibook
 It's an Advanced online Library with an AI Model for Text Summarization.
 
-#Frontend
-##Technology
+
+##Technology of Frontend
 Html, CSS,Bootstrap5, Typescript,Angular, PdfViewr , Rx.js
 
 ## Explaining the idea you can see this video 
