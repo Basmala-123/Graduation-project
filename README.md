@@ -1,14 +1,16 @@
 # Semibook
 It's an Advanced online Library with an AI Model for Text Summarization.
 
+#Frontend
+##Technology
+Html, CSS,Bootstrap5, Typescript,Angular, PdfViewr , Rx.js
+
 ## Explaining the idea you can see this video 
 
 https://github.com/Basmala-123/Graduation-project/assets/82044606/371952fc-163d-45d3-8706-dc441ff0e699
 
 
-##Frontend
-#Technology
-Html, CSS,Bootstrap5, Typescript,Angular, PdfViewr , Rx.js
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
 
