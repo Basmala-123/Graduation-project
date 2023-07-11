@@ -1,10 +1,23 @@
 # Semibook
+It's an Advanced online Library with an AI Model for Text Summarization.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+
+## Explaining the idea you can see this video 
+
+
+
+https://github.com/Basmala-123/Graduation-project/assets/82044606/2441bab5-0c67-4817-8268-29f5447b9f51
+
+
+
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+
+
 
 ## Code scaffolding
 
